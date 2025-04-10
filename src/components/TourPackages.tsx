@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Clock, Users, MapPin, ArrowRight, Star, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const TourPackages = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -69,7 +70,7 @@ const TourPackages = () => {
       id: 4,
       title: "Imperial Agra Day Tour",
       description: "Our most authentic experience visiting the two most iconic monuments of Agra with expert historical insights and plenty of time for photography.",
-      image: "https://images.unsplash.com/photo-1587135941948-670b381f08ce?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      image: "/lovable-uploads/452c1e6d-a8c3-48c7-a8a7-032db9446cbd.png",
       duration: "6 hours",
       groupSize: "Small group (max 6 people)",
       locations: ["Taj Mahal", "Agra Fort"],
@@ -226,10 +227,10 @@ const TourPackages = () => {
         
         <div className="mt-16 text-center fade-in">
           <h3 className="heading-md mb-6">Looking for Something Customized?</h3>
-          <a href="#custom-tour" className="btn-primary inline-flex items-center">
+          <Link to="/custom-tour" className="btn-primary inline-flex items-center">
             Create Custom Tour
             <ArrowRight className="ml-2" size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
