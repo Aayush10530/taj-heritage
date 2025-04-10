@@ -5,6 +5,8 @@ import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import Services from "../components/Services";
 import TourPackages from "../components/TourPackages";
+import CustomTour from "../components/CustomTour";
+import TaxiBooking from "../components/TaxiBooking";
 import GuideProfile from "../components/GuideProfile";
 import Testimonials from "../components/Testimonials";
 import ContactForm from "../components/ContactForm";
@@ -41,6 +43,8 @@ const Index = () => {
       <AboutUs />
       <Services />
       <TourPackages />
+      <CustomTour />
+      <TaxiBooking />
       <GuideProfile />
       <Testimonials />
       <ContactForm />

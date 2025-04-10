@@ -23,8 +23,9 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white bg-opacity-95 shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container-custom flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex flex-col">
           <span className="font-playfair font-bold text-2xl text-foreground">Taj Heritage</span>
+          <span className="text-xs text-accent-foreground/80 font-medium mt-0.5">Walk the Path of Emperors</span>
         </Link>
         
         {/* Desktop Navigation */}

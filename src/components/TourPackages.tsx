@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Clock, Users, MapPin, ArrowRight, Star } from "lucide-react";
+import { Clock, Users, MapPin, ArrowRight, Star, Heart } from "lucide-react";
 
 const TourPackages = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -36,13 +36,14 @@ const TourPackages = () => {
       rating: 4.9,
       reviews: 124,
       price: "$149",
-      type: "private"
+      type: "private",
+      tags: ["best-seller"]
     },
     {
       id: 2,
       title: "Royal Mughal Heritage Full Day Tour",
       description: "Immerse yourself in the rich history of the Mughal Empire with visits to all major monuments in Agra, accompanied by expert historical commentary.",
-      image: "https://images.unsplash.com/photo-1612810806546-ebbf22b53496?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      image: "https://images.pexels.com/photos/3581368/pexels-photo-3581368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       duration: "8 hours",
       groupSize: "Small group (max 10 people)",
       locations: ["Taj Mahal", "Agra Fort", "Fatehpur Sikri", "Itimad-ud-Daulah"],
@@ -55,7 +56,7 @@ const TourPackages = () => {
       id: 3,
       title: "Taj Mahal by Moonlight",
       description: "Witness the ethereal beauty of the Taj Mahal under the moonlight during special night viewing sessions, a rare and magical experience.",
-      image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      image: "/lovable-uploads/38db1722-ab1f-44d2-bfc1-95605b191003.png",
       duration: "3 hours",
       groupSize: "Private (1-4 people)",
       locations: ["Taj Mahal (Night View)"],
@@ -66,16 +67,31 @@ const TourPackages = () => {
     },
     {
       id: 4,
-      title: "Agra Photography Expedition",
-      description: "Perfect for photography enthusiasts, this tour focuses on capturing the best angles of Agra's monuments with guidance from a professional photographer.",
+      title: "Imperial Agra Day Tour",
+      description: "Our most authentic experience visiting the two most iconic monuments of Agra with expert historical insights and plenty of time for photography.",
       image: "https://images.unsplash.com/photo-1587135941948-670b381f08ce?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
       duration: "6 hours",
       groupSize: "Small group (max 6 people)",
-      locations: ["Taj Mahal", "Mehtab Bagh", "Agra Fort"],
+      locations: ["Taj Mahal", "Agra Fort"],
       rating: 4.7,
       reviews: 45,
       price: "$179",
-      type: "group"
+      type: "group",
+      tags: ["best-tour"]
+    },
+    {
+      id: 5,
+      title: "Romantic Taj Experience for Couples",
+      description: "A special tour designed exclusively for couples to experience the eternal monument of love with romantic elements and private moments.",
+      image: "https://images.unsplash.com/photo-1516145589215-c4d542a97825?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      duration: "4 hours",
+      groupSize: "Private (couples only)",
+      locations: ["Taj Mahal", "Mehtab Bagh"],
+      rating: 4.9,
+      reviews: 87,
+      price: "$249",
+      type: "private",
+      tags: ["romantic"]
     }
   ];
 
@@ -133,7 +149,7 @@ const TourPackages = () => {
           {filteredTours.map((tour, index) => (
             <div 
               key={tour.id} 
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow fade-in"
+              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow fade-in relative"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative h-64">
@@ -145,6 +161,27 @@ const TourPackages = () => {
                 <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full font-medium text-sm">
                   {tour.price} per person
                 </div>
+                
+                {tour.tags?.includes("best-seller") && (
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full font-medium text-sm flex items-center gap-1">
+                    <Star className="fill-gold" size={14} />
+                    <span>Most Booked</span>
+                  </div>
+                )}
+                
+                {tour.tags?.includes("best-tour") && (
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full font-medium text-sm flex items-center gap-1">
+                    <Star className="fill-gold" size={14} />
+                    <span>Best Tour</span>
+                  </div>
+                )}
+                
+                {tour.tags?.includes("romantic") && (
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full font-medium text-sm flex items-center gap-1">
+                    <Heart className="fill-red-500 text-red-500" size={14} />
+                    <span>Couples Special</span>
+                  </div>
+                )}
               </div>
               
               <div className="p-6">
