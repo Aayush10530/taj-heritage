@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { Car, Users, ArrowRight, CheckCircle2, CircleDollarSign } from "lucide-react";
-import { Checkbox } from "./ui/checkbox";
 
 const TaxiBooking = () => {
   const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
@@ -113,49 +112,11 @@ const TaxiBooking = () => {
           ))}
         </div>
         
-        <div className="mt-12 p-6 bg-white rounded-xl shadow-md fade-in">
-          <h3 className="heading-md mb-4">Additional Services</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-2">
-                <Checkbox id="airport" />
-                <div>
-                  <label htmlFor="airport" className="font-medium cursor-pointer">Airport Transfers</label>
-                  <p className="text-sm text-gray-600">Pickup and drop-off at Delhi or Agra airports</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Checkbox id="intercity" />
-                <div>
-                  <label htmlFor="intercity" className="font-medium cursor-pointer">Intercity Travel</label>
-                  <p className="text-sm text-gray-600">Delhi-Agra-Jaipur Golden Triangle tours</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-2">
-                <Checkbox id="multiday" />
-                <div>
-                  <label htmlFor="multiday" className="font-medium cursor-pointer">Multi-day Bookings</label>
-                  <p className="text-sm text-gray-600">Discounted rates for longer durations</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Checkbox id="guide" />
-                <div>
-                  <label htmlFor="guide" className="font-medium cursor-pointer">Add a Tour Guide</label>
-                  <p className="text-sm text-gray-600">Include a licensed guide with your vehicle</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-8 text-center">
-            <a href="#contact" className="btn-primary inline-flex items-center">
-              Book Transportation
-              <ArrowRight className="ml-2" size={18} />
-            </a>
-          </div>
+        <div className="mt-12 text-center">
+          <a href="#contact" className="btn-primary inline-flex items-center">
+            Book Transportation
+            <ArrowRight className="ml-2" size={18} />
+          </a>
         </div>
       </div>
     </section>

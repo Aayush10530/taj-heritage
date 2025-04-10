@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "./ThemeToggle";
 
 const ThemedNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +24,7 @@ const ThemedNavbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm dark:bg-background/50"
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -34,7 +33,7 @@ const ThemedNavbar = () => {
           <Link to="/" className="text-2xl font-playfair font-bold">
             Taj Heritage
           </Link>
-          <span className="text-xs font-medium tracking-wider text-foreground/70 dark:text-foreground/80">
+          <span className="text-xs font-medium tracking-wider text-foreground/70">
             Walk the Path of Emperors
           </span>
         </div>
@@ -56,7 +55,6 @@ const ThemedNavbar = () => {
           <a href="#contact" className="nav-link hover:text-accent transition-colors">
             Contact
           </a>
-          <ThemeToggle />
           <a href="#contact" className="btn-primary">
             Book Now
           </a>
@@ -64,7 +62,6 @@ const ThemedNavbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-foreground p-2"
@@ -76,7 +73,7 @@ const ThemedNavbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-background dark:bg-background/90 backdrop-blur-lg z-40 transition-transform duration-300 transform ${
+        className={`fixed inset-0 bg-background backdrop-blur-lg z-40 transition-transform duration-300 transform ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden pt-20`}
       >

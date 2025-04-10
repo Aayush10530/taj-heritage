@@ -216,7 +216,7 @@ const TourPackages = () => {
                     href="#contact"
                     className="btn-primary py-2 inline-flex items-center"
                   >
-                    Book Now
+                    View Details
                     <ArrowRight size={16} className="ml-2" />
                   </a>
                 </div>
@@ -238,3 +238,4 @@ const TourPackages = () => {
 };
 
 export default TourPackages;
+
