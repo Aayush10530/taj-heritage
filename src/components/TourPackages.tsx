@@ -84,7 +84,7 @@ const TourPackages = () => {
       id: 5,
       title: "Romantic Taj Experience for Couples",
       description: "A special tour designed exclusively for couples to experience the eternal monument of love with romantic elements and private moments.",
-      image: "https://images.unsplash.com/photo-1516145589215-c4d542a97825?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      image: "/lovable-uploads/777fdc51-0bd6-423c-90d7-c23aba7137e9.png",
       duration: "4 hours",
       groupSize: "Private (couples only)",
       locations: ["Taj Mahal", "Mehtab Bagh"],

@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from "react";
-import Navbar from "../components/Navbar";
+import ThemedNavbar from "../components/ThemedNavbar";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import Services from "../components/Services";
@@ -37,7 +37,7 @@ const Index = () => {
 
   return (
     <div ref={mainRef} className="min-h-screen">
-      <Navbar />
+      <ThemedNavbar />
       <Hero />
       <AboutUs />
       <Services />

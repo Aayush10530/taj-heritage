@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Clock, MapPin, Calendar } from "lucide-react";
-import Navbar from "../components/Navbar";
+import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
 
 const CustomTourPage = () => {
@@ -88,7 +88,7 @@ const CustomTourPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <ThemedNavbar />
       
       <section className="pt-32 pb-24">
         <div className="container-custom">
