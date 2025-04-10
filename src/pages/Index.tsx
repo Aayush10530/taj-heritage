@@ -1,12 +1,50 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useRef } from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import AboutUs from "../components/AboutUs";
+import Services from "../components/Services";
+import TourPackages from "../components/TourPackages";
+import GuideProfile from "../components/GuideProfile";
+import Testimonials from "../components/Testimonials";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 const Index = () => {
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Simple animation on scroll logic
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "-50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("appear");
+        }
+      });
+    }, observerOptions);
+
+    const elements = mainRef.current?.querySelectorAll(".fade-in");
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div ref={mainRef} className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <AboutUs />
+      <Services />
+      <TourPackages />
+      <GuideProfile />
+      <Testimonials />
+      <ContactForm />
+      <Footer />
     </div>
   );
 };
