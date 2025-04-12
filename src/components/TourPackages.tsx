@@ -71,7 +71,7 @@ const TourPackages = () => {
             Tour Packages
           </span>
           <h2 className="heading-lg mt-2 mb-6 fade-in">
-            Our Tours
+            Curated Experiences in Agra
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-8 fade-in"></div>
           <p className="text-lg fade-in">
