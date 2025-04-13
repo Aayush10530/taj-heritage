@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ThemedNavbar = () => {
@@ -40,6 +40,10 @@ const ThemedNavbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="nav-link hover:text-accent transition-colors text-black flex items-center gap-1">
+            <Home size={16} />
+            Home
+          </Link>
           <a href="#about" className="nav-link hover:text-accent transition-colors text-black">
             About
           </a>
@@ -48,9 +52,6 @@ const ThemedNavbar = () => {
           </a>
           <a href="#tours" className="nav-link hover:text-accent transition-colors text-black">
             Tours
-          </a>
-          <a href="#guides" className="nav-link hover:text-accent transition-colors text-black">
-            Guides
           </a>
           <a href="#contact" className="nav-link hover:text-accent transition-colors text-black">
             Contact
@@ -78,6 +79,14 @@ const ThemedNavbar = () => {
         } md:hidden pt-20`}
       >
         <div className="container-custom flex flex-col space-y-4 py-8">
+          <Link
+            to="/"
+            className="py-3 text-lg border-b border-border text-black flex items-center gap-2"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Home size={18} />
+            Home
+          </Link>
           <a
             href="#about"
             className="py-3 text-lg border-b border-border text-black"
@@ -98,13 +107,6 @@ const ThemedNavbar = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Tours
-          </a>
-          <a
-            href="#guides"
-            className="py-3 text-lg border-b border-border text-black"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Guides
           </a>
           <a
             href="#contact"

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MobileSidebar from './MobileSidebar';
 
@@ -62,23 +62,34 @@ const Navbar = () => {
 
 const NavLinks = () => {
   const links = [
+    { name: 'Home', href: '/', isRoute: true },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Tours', href: '#tours' },
-    { name: 'Guides', href: '#guides' },
     { name: 'Testimonials', href: '#testimonials' },
   ];
 
   return (
     <div className="flex gap-8">
       {links.map(link => (
-        <a
-          key={link.name}
-          href={link.href}
-          className="font-medium hover:text-accent transition-colors"
-        >
-          {link.name}
-        </a>
+        link.isRoute ? (
+          <Link
+            key={link.name}
+            to={link.href}
+            className="font-medium hover:text-accent transition-colors flex items-center gap-1"
+          >
+            {link.name === 'Home' && <Home size={16} />}
+            {link.name}
+          </Link>
+        ) : (
+          <a
+            key={link.name}
+            href={link.href}
+            className="font-medium hover:text-accent transition-colors"
+          >
+            {link.name}
+          </a>
+        )
       ))}
     </div>
   );
