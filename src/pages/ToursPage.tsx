@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
@@ -77,7 +76,7 @@ const ToursPage = () => {
       id: 6,
       title: "Agra Food & Culture Walk",
       description: "Explore the culinary traditions and cultural heritage of Agra, from street food specialties to local artisan workshops.",
-      image: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&q=80&w=1000",
+      image: "https://images.unsplash.com/photo-1537944434965-cf4dbaf03696?auto=format&fit=crop&q=80&w=1000",
       rating: 4.8,
       reviews: 62
     },
@@ -107,7 +106,7 @@ const ToursPage = () => {
       <section className="pt-32 pb-24">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="heading-xl mt-2 mb-6 fade-in">All Tours</h1>
+            <h1 className="heading-xl mt-2 mb-6 fade-in">Luxury Escapes</h1>
             <div className="w-20 h-1 bg-accent mx-auto mb-8 fade-in"></div>
             <p className="text-lg fade-in">
               Explore our complete collection of tours designed to showcase the beauty and history of Agra and surrounding areas.
