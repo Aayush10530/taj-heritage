@@ -1,11 +1,12 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Home } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ThemedNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,14 @@ const ThemedNavbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -40,10 +49,10 @@ const ThemedNavbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="nav-link hover:text-accent transition-colors text-black flex items-center gap-1">
+          <a href="/" onClick={handleHomeClick} className="nav-link hover:text-accent transition-colors text-black flex items-center gap-1">
             <Home size={16} />
             Home
-          </Link>
+          </a>
           <a href="#about" className="nav-link hover:text-accent transition-colors text-black">
             About
           </a>
@@ -79,14 +88,14 @@ const ThemedNavbar = () => {
         } md:hidden pt-20`}
       >
         <div className="container-custom flex flex-col space-y-4 py-8">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="py-3 text-lg border-b border-border text-black flex items-center gap-2"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleHomeClick}
           >
             <Home size={18} />
             Home
-          </Link>
+          </a>
           <a
             href="#about"
             className="py-3 text-lg border-b border-border text-black"

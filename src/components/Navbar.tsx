@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Home } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MobileSidebar from './MobileSidebar';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,11 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+  };
+
   return (
     <>
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white bg-opacity-95 shadow-md py-3' : 'bg-transparent py-5'}`}>
@@ -36,7 +42,7 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            <NavLinks />
+            <NavLinks onHomeClick={handleHomeClick} />
             <a href="#contact" className="flex items-center gap-2 btn-primary">
               <Phone size={16} />
               <span>Contact Us</span>
@@ -60,7 +66,7 @@ const Navbar = () => {
   );
 };
 
-const NavLinks = () => {
+const NavLinks = ({ onHomeClick }: { onHomeClick: (e: React.MouseEvent) => void }) => {
   const links = [
     { name: 'Home', href: '/', isRoute: true },
     { name: 'About', href: '#about' },
@@ -72,13 +78,22 @@ const NavLinks = () => {
   return (
     <div className="flex gap-8">
       {links.map(link => (
-        link.isRoute ? (
+        link.name === 'Home' ? (
+          <a
+            key={link.name}
+            href="/"
+            className="font-medium hover:text-accent transition-colors flex items-center gap-1"
+            onClick={onHomeClick}
+          >
+            <Home size={16} />
+            {link.name}
+          </a>
+        ) : link.isRoute ? (
           <Link
             key={link.name}
             to={link.href}
             className="font-medium hover:text-accent transition-colors flex items-center gap-1"
           >
-            {link.name === 'Home' && <Home size={16} />}
             {link.name}
           </Link>
         ) : (

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { X, Home } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface MobileSidebarProps {
   isOpen: boolean;
@@ -9,6 +9,8 @@ interface MobileSidebarProps {
 }
 
 const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
+  const navigate = useNavigate();
+  
   // Prevent scrolling when sidebar is open
   useEffect(() => {
     if (isOpen) {
@@ -20,6 +22,12 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -37,7 +45,10 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
         </div>
         
         <div className="flex flex-col space-y-6 text-xl">
-          <NavItem href="/" isRoute={true} icon={<Home size={20} className="mr-2" />} onClick={onClose}>Home</NavItem>
+          <a href="/" className="font-medium hover:text-accent transition-colors py-2 flex items-center" onClick={handleHomeClick}>
+            <Home size={20} className="mr-2" />
+            Home
+          </a>
           <NavItem href="#about" onClick={onClose}>About</NavItem>
           <NavItem href="#services" onClick={onClose}>Services</NavItem>
           <NavItem href="/tours" isRoute={true} onClick={onClose}>Tours</NavItem>
@@ -73,28 +84,23 @@ const NavItem = ({
   isRoute?: boolean;
   icon?: React.ReactNode;
 }) => {
-  // Handle hash navigation vs page navigation differently
-  const isHashLink = href.startsWith('#');
+  const navigate = useNavigate();
   
-  if (isRoute) {
-    return (
-      <Link 
-        to={href}
-        className="font-medium hover:text-accent transition-colors py-2 flex items-center" 
-        onClick={onClick}
-      >
-        {icon}
-        {children}
-      </Link>
-    );
-  }
+  const handleClick = (e: React.MouseEvent) => {
+    if (isRoute) {
+      e.preventDefault();
+      navigate(href);
+    }
+    onClick();
+  };
   
   return (
     <a 
       href={href}
-      className="font-medium hover:text-accent transition-colors py-2" 
-      onClick={onClick}
+      className="font-medium hover:text-accent transition-colors py-2 flex items-center" 
+      onClick={handleClick}
     >
+      {icon}
       {children}
     </a>
   );
