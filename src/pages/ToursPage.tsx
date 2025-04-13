@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
@@ -8,9 +7,6 @@ const ToursPage = () => {
   const mainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-
     // Simple animation on scroll logic
     const observerOptions = {
       threshold: 0.1,
