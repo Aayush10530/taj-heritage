@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from "react";
 import { ArrowRight, Star, Heart, Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -61,6 +62,7 @@ const TourPackages = () => {
       image: "/lovable-uploads/777fdc51-0bd6-423c-90d7-c23aba7137e9.png",
       rating: 4.9,
       reviews: 87,
+      people: "1-2",
       tags: ["romantic"]
     }
   ];
@@ -112,10 +114,16 @@ const TourPackages = () => {
               </div>
               
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <Star className="text-yellow-500 fill-yellow-500" size={16} />
-                  <span className="font-medium">{tour.rating}</span>
-                  <span className="text-gray-500">({tour.reviews} reviews)</span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Star className="text-yellow-500 fill-yellow-500" size={16} />
+                    <span className="font-medium">{tour.rating}</span>
+                    <span className="text-gray-500">({tour.reviews} reviews)</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-gray-600 text-sm">
+                    <Users size={14} />
+                    <span>{tour.people} people</span>
+                  </div>
                 </div>
                 
                 <h3 className="font-playfair text-xl font-semibold mb-3">{tour.title}</h3>
