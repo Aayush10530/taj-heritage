@@ -60,6 +60,14 @@ const CustomTourPage = () => {
       image: "https://images.unsplash.com/photo-1626017204247-b3b34249fbb7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
       duration: "1-2 hours",
       price: "$15"
+    },
+    {
+      id: "ram-bagh",
+      name: "Ram Bagh",
+      description: "One of the oldest Mughal gardens in India, originally built by Emperor Babur",
+      image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      duration: "1 hour",
+      price: "$10"
     }
   ];
 
