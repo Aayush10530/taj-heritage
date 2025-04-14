@@ -1,8 +1,9 @@
 
 import { useRef, useEffect } from "react";
-import { ArrowRight, Star, Heart, Users } from "lucide-react";
+import { ArrowRight, Star, Heart, Users, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import TourHighlights from "./TourHighlights";
 
 const TourPackages = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,14 @@ const TourPackages = () => {
       rating: 4.9,
       reviews: 124,
       people: "1-3",
-      tags: ["best-seller"]
+      tags: ["best-seller"],
+      price: 179,
+      highlights: [
+        "Beat the crowds with early morning access",
+        "Witness the changing colors of the Taj at sunrise",
+        "Expert historical commentary from our guides",
+        "Perfect lighting conditions for photography"
+      ]
     },
     {
       id: 2,
@@ -45,6 +53,13 @@ const TourPackages = () => {
       rating: 4.8,
       reviews: 98,
       people: "2-6",
+      price: 250,
+      highlights: [
+        "Visit all major Mughal monuments in one day",
+        "Insights into the architecture and history",
+        "Lunch at a traditional restaurant",
+        "Luxury air-conditioned transportation"
+      ]
     },
     {
       id: 3,
@@ -54,6 +69,13 @@ const TourPackages = () => {
       rating: 5.0,
       reviews: 56,
       people: "1-4",
+      price: 220,
+      highlights: [
+        "Exclusive night viewing of the Taj Mahal",
+        "Mystical atmosphere under moonlight",
+        "Smaller crowds than daytime visits",
+        "Special night photography opportunities"
+      ]
     },
     {
       id: 5,
@@ -62,8 +84,14 @@ const TourPackages = () => {
       image: "/lovable-uploads/777fdc51-0bd6-423c-90d7-c23aba7137e9.png",
       rating: 4.9,
       reviews: 87,
-      people: "1-2",
-      tags: ["romantic"]
+      tags: ["romantic"],
+      price: 299,
+      highlights: [
+        "Private tour designed for couples",
+        "Professional photography session",
+        "Romantic lunch with Taj view",
+        "Personalized love story narration by guide"
+      ]
     }
   ];
 
@@ -111,6 +139,15 @@ const TourPackages = () => {
                     <span>Couples Special</span>
                   </div>
                 )}
+                
+                {/* Price tag */}
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg shadow-sm">
+                  <div className="flex items-center gap-1 font-medium">
+                    <DollarSign size={14} className="text-accent" />
+                    <span>{tour.price}</span>
+                    <span className="text-xs text-gray-500">per person</span>
+                  </div>
+                </div>
               </div>
               
               <div className="p-6">
@@ -120,14 +157,21 @@ const TourPackages = () => {
                     <span className="font-medium">{tour.rating}</span>
                     <span className="text-gray-500">({tour.reviews} reviews)</span>
                   </div>
-                  <div className="flex items-center gap-1 text-gray-600 text-sm">
-                    <Users size={14} />
-                    <span>{tour.people} people</span>
-                  </div>
+                  {tour.people && (
+                    <div className="flex items-center gap-1 text-gray-600 text-sm">
+                      <Users size={14} />
+                      <span>{tour.people} people</span>
+                    </div>
+                  )}
                 </div>
                 
                 <h3 className="font-playfair text-xl font-semibold mb-3">{tour.title}</h3>
-                <p className="mb-6 text-gray-700">{tour.description}</p>
+                <p className="mb-4 text-gray-700">{tour.description}</p>
+                
+                <TourHighlights 
+                  highlights={tour.highlights} 
+                  className="mb-6"
+                />
                 
                 <div className="flex justify-end">
                   <Link 

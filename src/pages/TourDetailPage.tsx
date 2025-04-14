@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
-import { ArrowLeft, Clock, Calendar, Bed, DollarSign, User, MapPin, Info, Users } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Bed, DollarSign, Info, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import TourHighlights from "@/components/TourHighlights";
+import BookingCalendar from "@/components/BookingCalendar";
 
 // Tour data - this would typically come from a database
 const tourData = [
@@ -21,7 +23,15 @@ const tourData = [
     accommodation: "Guide (25+ years of experience), Entry tickets, Personalized Ride Services",
     price: 179,
     people: "1-3",
-    tags: ["best-seller"]
+    tags: ["best-seller"],
+    highlights: [
+      "Beat the crowds with early morning access",
+      "Witness the changing colors of the Taj at sunrise",
+      "Expert historical commentary from our guides",
+      "Perfect lighting conditions for photography",
+      "Complimentary hotel pickup and drop-off",
+      "Small group size for personalized experience"
+    ]
   },
   {
     id: 2,
@@ -35,7 +45,15 @@ const tourData = [
     accommodation: "Expert historian guide, All entry tickets, Luxury air-conditioned vehicle, Lunch at traditional restaurant",
     price: 250,
     people: "2-6",
-    tags: []
+    tags: [],
+    highlights: [
+      "Visit all major Mughal monuments in one day",
+      "Insights into the architecture and history",
+      "Lunch at a traditional restaurant",
+      "Luxury air-conditioned transportation",
+      "Skip-the-line entry tickets included",
+      "Complimentary bottled water throughout the day"
+    ]
   },
   {
     id: 3,
@@ -49,7 +67,15 @@ const tourData = [
     accommodation: "Special night entry permits, Expert guide, Luxury transfer service",
     price: 220,
     people: "1-4",
-    tags: []
+    tags: [],
+    highlights: [
+      "Exclusive night viewing of the Taj Mahal",
+      "Mystical atmosphere under moonlight",
+      "Smaller crowds than daytime visits",
+      "Special night photography opportunities",
+      "Rare experience only available on select nights",
+      "Expert guidance on night photography techniques"
+    ]
   },
   {
     id: 4,
@@ -63,7 +89,15 @@ const tourData = [
     accommodation: "Professional guide, Entry tickets, Air-conditioned transportation",
     price: 195,
     people: "2-5",
-    tags: ["best-tour"]
+    tags: ["best-tour"],
+    highlights: [
+      "In-depth tour of the Taj Mahal and Agra Fort",
+      "Professional photography guidance",
+      "Historical insights from expert guides",
+      "Comfortable, air-conditioned transportation",
+      "Flexible pace with ample time at each monument",
+      "Insider access to hidden spots and viewpoints"
+    ]
   },
   {
     id: 5,
@@ -76,8 +110,15 @@ const tourData = [
     timing: "10:00 AM - 4:00 PM",
     accommodation: "Private guide, All entry fees, Professional photography session (1 hour), Romantic lunch with Taj view",
     price: 299,
-    people: "1-2",
-    tags: ["romantic"]
+    tags: ["romantic"],
+    highlights: [
+      "Private tour designed for couples",
+      "Professional photography session",
+      "Romantic lunch with Taj view",
+      "Personalized love story narration by guide",
+      "Visit to lesser-known romantic spots",
+      "Customized experience based on your love story"
+    ]
   },
   {
     id: 6,
@@ -90,7 +131,15 @@ const tourData = [
     timing: "4:00 PM - 8:00 PM",
     accommodation: "Food guide, All food tastings, Cultural demonstrations, Bottled water",
     price: 89,
-    tags: []
+    tags: [],
+    highlights: [
+      "Sample authentic Mughal cuisine and street food",
+      "Visit local artisans and craftspeople",
+      "Explore hidden gems in Agra's old city",
+      "Learn about cultural traditions and daily life",
+      "Taste Agra's famous petha sweet",
+      "Small group size for an intimate experience"
+    ]
   },
   {
     id: 7,
@@ -103,7 +152,15 @@ const tourData = [
     timing: "2:00 PM - 6:00 PM",
     accommodation: "Horticulture expert guide, Garden entry fees, Refreshments",
     price: 120,
-    tags: []
+    tags: [],
+    highlights: [
+      "Visit the Mehtab Bagh for Taj Mahal views across the river",
+      "Explore the oldest Mughal garden, Ram Bagh",
+      "Learn about Mughal landscape design principles",
+      "Enjoy serene natural environments away from the crowds",
+      "Photograph the Taj Mahal from unique garden viewpoints",
+      "Expert insights into historical gardening techniques"
+    ]
   },
   {
     id: 8,
@@ -116,7 +173,15 @@ const tourData = [
     timing: "5:30 AM - 10:00 AM and 3:30 PM - 7:00 PM",
     accommodation: "Photography expert guide, Monument entry fees, Photography permits, Bottled water",
     price: 149,
-    tags: ["special"]
+    tags: ["special"],
+    highlights: [
+      "Learn composition techniques for architectural photography",
+      "Visit the best vantage points at optimal times",
+      "Access special areas for unique perspectives",
+      "Post-processing tips and guidance",
+      "Expert guidance on equipment settings",
+      "Small group size for personalized attention"
+    ]
   }
 ];
 
@@ -147,7 +212,7 @@ const TourDetailPage = () => {
     <div className="min-h-screen">
       <ThemedNavbar />
       
-      <section className="pt-32 pb-24">
+      <section className="pt-32 pb-16">
         <div className="container-custom">
           <Link 
             to="/tours"
@@ -157,7 +222,7 @@ const TourDetailPage = () => {
             Back to Tours
           </Link>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div>
               <div className="h-[400px] rounded-xl overflow-hidden mb-6">
                 <img
@@ -169,17 +234,30 @@ const TourDetailPage = () => {
               
               <div className="flex items-center gap-2 mb-4">
                 <div className="bg-yellow-500 text-white rounded-full p-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <Star className="h-4 w-4 fill-current" />
                 </div>
                 <span className="font-medium">{tour.rating}</span>
                 <span className="text-gray-500">({tour.reviews} reviews)</span>
+              </div>
+              
+              <div className="mt-6">
+                <h3 className="font-medium text-xl mb-4">Tour Highlights</h3>
+                <TourHighlights highlights={tour.highlights} />
               </div>
             </div>
             
             <div>
               <h1 className="font-playfair text-3xl font-semibold mb-6">{tour.title}</h1>
+              
+              <div className="flex items-center mb-6">
+                <div className="bg-accent/20 p-2 rounded-full mr-3">
+                  <DollarSign className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <span className="text-2xl font-bold">${tour.price}</span>
+                  <span className="text-gray-500 ml-2">per person</span>
+                </div>
+              </div>
               
               <p className="text-gray-600 mb-8">{tour.longDescription}</p>
               
@@ -196,17 +274,19 @@ const TourDetailPage = () => {
                   </CardContent>
                 </Card>
                 
-                <Card>
-                  <CardContent className="p-4 flex items-center gap-4">
-                    <div className="bg-accent/20 p-3 rounded-full">
-                      <Users className="text-accent" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg">Group Size</h3>
-                      <p>{tour.people} people</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                {tour.people && (
+                  <Card>
+                    <CardContent className="p-4 flex items-center gap-4">
+                      <div className="bg-accent/20 p-3 rounded-full">
+                        <Users className="text-accent" size={24} />
+                      </div>
+                      <div>
+                        <h3 className="font-medium text-lg">Group Size</h3>
+                        <p>{tour.people} people</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
                 
                 <Card>
                   <CardContent className="p-4 flex items-center gap-4">
@@ -220,24 +300,20 @@ const TourDetailPage = () => {
                   </CardContent>
                 </Card>
                 
-                <Card>
-                  <CardContent className="p-4 flex items-center gap-4">
-                    <div className="bg-accent/20 p-3 rounded-full">
-                      <DollarSign className="text-accent" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg">Price</h3>
-                      <p className="text-xl font-bold">${tour.price} <span className="text-sm font-normal text-gray-500">per person</span></p>
-                    </div>
-                  </CardContent>
-                </Card>
-                
                 <div className="pt-4">
                   <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
                     Book This Tour
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Check Availability Section */}
+          <div className="mt-10 bg-muted/20 p-8 rounded-xl">
+            <div className="max-w-lg mx-auto">
+              <h2 className="text-2xl font-playfair font-semibold text-center mb-6">Check Tour Availability</h2>
+              <BookingCalendar />
             </div>
           </div>
         </div>

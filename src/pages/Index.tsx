@@ -10,6 +10,12 @@ import GuideProfile from "../components/GuideProfile";
 import Testimonials from "../components/Testimonials";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
+import ImageGallery from "../components/ImageGallery";
+import InteractiveMap from "../components/InteractiveMap";
+import FAQSection from "../components/FAQSection";
+import LocalInsights from "../components/LocalInsights";
+import NewsletterSignup from "../components/NewsletterSignup";
+import BookingCalendar from "../components/BookingCalendar";
 
 const Index = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -41,10 +47,71 @@ const Index = () => {
       <Hero />
       <AboutUs />
       <Services />
+      
+      {/* Image Gallery Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <ImageGallery />
+        </div>
+      </section>
+      
       <TourPackages />
+      
+      {/* Interactive Map Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="heading-lg mb-6 fade-in">Explore Agra's Treasures</h2>
+            <p className="text-lg mb-8 fade-in">
+              Discover the locations of Agra's most iconic monuments and plan your perfect visit.
+            </p>
+          </div>
+          <div className="fade-in">
+            <InteractiveMap />
+          </div>
+        </div>
+      </section>
+      
       <TaxiBooking />
+      
+      {/* Local Insights Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom fade-in">
+          <LocalInsights />
+        </div>
+      </section>
+      
       <GuideProfile />
       <Testimonials />
+      
+      {/* FAQ Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <FAQSection />
+        </div>
+      </section>
+      
+      {/* Newsletter and Booking Calendar Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="heading-lg mb-6 fade-in">Plan Your Visit</h2>
+            <p className="text-lg fade-in">
+              Check our availability and subscribe to our newsletter for exclusive updates and offers.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="fade-in">
+              <NewsletterSignup />
+            </div>
+            <div className="fade-in">
+              <BookingCalendar />
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <ContactForm />
       <Footer />
     </div>
