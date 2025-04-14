@@ -120,13 +120,13 @@ const TourPackages = () => {
                 <p className="mb-6 text-gray-700">{tour.description}</p>
                 
                 <div className="flex justify-end">
-                  <a 
-                    href="#contact"
+                  <Link 
+                    to={`/tour/${tour.id}`}
                     className="btn-primary py-2 inline-flex items-center"
                   >
                     View Details
                     <ArrowRight size={16} className="ml-2" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
 import { Star, Heart, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ToursPage = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -171,13 +172,13 @@ const ToursPage = () => {
                   <p className="mb-6 text-gray-700">{tour.description}</p>
                   
                   <div className="flex justify-end">
-                    <a 
-                      href="#contact"
+                    <Link 
+                      to={`/tour/${tour.id}`}
                       className="btn-primary py-2 inline-flex items-center"
                     >
                       View Details
                       <ArrowRight size={16} className="ml-2" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -186,10 +187,10 @@ const ToursPage = () => {
           
           <div className="mt-16 text-center fade-in">
             <h3 className="heading-md mb-6">Looking for Something Customized?</h3>
-            <a href="/custom-tour" className="btn-primary inline-flex items-center">
+            <Link to="/custom-tour" className="btn-primary inline-flex items-center">
               Create Custom Tour
               <ArrowRight className="ml-2" size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
