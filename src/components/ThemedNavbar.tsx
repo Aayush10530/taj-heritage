@@ -49,9 +49,8 @@ const ThemedNavbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="/" onClick={handleHomeClick} className="nav-link hover:text-accent transition-colors text-black flex items-center gap-1">
+          <a href="/" onClick={handleHomeClick} className="nav-link hover:text-accent transition-colors text-black">
             <Home size={16} />
-            Home
           </a>
           <a href="#about" className="nav-link hover:text-accent transition-colors text-black">
             About

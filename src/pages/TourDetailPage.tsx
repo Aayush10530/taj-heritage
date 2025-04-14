@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Footer from "../components/Footer";
-import { ArrowLeft, Clock, Calendar, Bed, DollarSign, User, MapPin, Info } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Bed, DollarSign, User, MapPin, Info, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,6 +20,7 @@ const tourData = [
     timing: "6:00 AM - 10:00 AM",
     accommodation: "Guide (25+ years of experience), Entry tickets, Personalized Ride Services",
     price: 179,
+    people: "1-3",
     tags: ["best-seller"]
   },
   {
@@ -33,6 +34,7 @@ const tourData = [
     timing: "8:00 AM - 5:00 PM",
     accommodation: "Expert historian guide, All entry tickets, Luxury air-conditioned vehicle, Lunch at traditional restaurant",
     price: 250,
+    people: "2-6",
     tags: []
   },
   {
@@ -46,6 +48,7 @@ const tourData = [
     timing: "8:30 PM - 10:30 PM (Available only on full moon nights)",
     accommodation: "Special night entry permits, Expert guide, Luxury transfer service",
     price: 220,
+    people: "1-4",
     tags: []
   },
   {
@@ -59,6 +62,7 @@ const tourData = [
     timing: "9:00 AM - 4:00 PM",
     accommodation: "Professional guide, Entry tickets, Air-conditioned transportation",
     price: 195,
+    people: "2-5",
     tags: ["best-tour"]
   },
   {
@@ -72,6 +76,7 @@ const tourData = [
     timing: "10:00 AM - 4:00 PM",
     accommodation: "Private guide, All entry fees, Professional photography session (1 hour), Romantic lunch with Taj view",
     price: 299,
+    people: "1-2",
     tags: ["romantic"]
   },
   {
@@ -187,6 +192,18 @@ const TourDetailPage = () => {
                     <div>
                       <h3 className="font-medium text-lg">Timing</h3>
                       <p>{tour.timing}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="bg-accent/20 p-3 rounded-full">
+                      <Users className="text-accent" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-lg">Group Size</h3>
+                      <p>{tour.people} people</p>
                     </div>
                   </CardContent>
                 </Card>

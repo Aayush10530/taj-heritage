@@ -1,6 +1,6 @@
 
 import { useRef, useEffect } from "react";
-import { ArrowRight, Star, Heart } from "lucide-react";
+import { ArrowRight, Star, Heart, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
@@ -34,6 +34,7 @@ const TourPackages = () => {
       image: "https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
       rating: 4.9,
       reviews: 124,
+      people: "1-3",
       tags: ["best-seller"]
     },
     {
@@ -42,7 +43,8 @@ const TourPackages = () => {
       description: "Immerse yourself in the rich history of the Mughal Empire with visits to all major monuments in Agra, accompanied by expert historical commentary.",
       image: "https://images.pexels.com/photos/3581368/pexels-photo-3581368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       rating: 4.8,
-      reviews: 98
+      reviews: 98,
+      people: "2-6",
     },
     {
       id: 3,
@@ -50,7 +52,8 @@ const TourPackages = () => {
       description: "Witness the ethereal beauty of the Taj Mahal under the moonlight during special night viewing sessions, a rare and magical experience.",
       image: "/lovable-uploads/38db1722-ab1f-44d2-bfc1-95605b191003.png",
       rating: 5.0,
-      reviews: 56
+      reviews: 56,
+      people: "1-4",
     },
     {
       id: 5,
@@ -59,6 +62,7 @@ const TourPackages = () => {
       image: "/lovable-uploads/777fdc51-0bd6-423c-90d7-c23aba7137e9.png",
       rating: 4.9,
       reviews: 87,
+      people: "1-2",
       tags: ["romantic"]
     }
   ];
@@ -110,10 +114,16 @@ const TourPackages = () => {
               </div>
               
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <Star className="text-yellow-500 fill-yellow-500" size={16} />
-                  <span className="font-medium">{tour.rating}</span>
-                  <span className="text-gray-500">({tour.reviews} reviews)</span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Star className="text-yellow-500 fill-yellow-500" size={16} />
+                    <span className="font-medium">{tour.rating}</span>
+                    <span className="text-gray-500">({tour.reviews} reviews)</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-gray-600 text-sm">
+                    <Users size={14} />
+                    <span>{tour.people} people</span>
+                  </div>
                 </div>
                 
                 <h3 className="font-playfair text-xl font-semibold mb-3">{tour.title}</h3>

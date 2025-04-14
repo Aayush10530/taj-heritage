@@ -50,8 +50,8 @@ const AboutUs = () => {
 
           <div className="relative h-[400px] overflow-hidden rounded-lg fade-in">
             <img 
-              src="https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000" 
-              alt="Taj Mahal reflection" 
+              src="/lovable-uploads/180c80d5-167b-4a09-901e-519cb9255112.png" 
+              alt="Agra Fort at sunset" 
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">

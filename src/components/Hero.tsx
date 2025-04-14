@@ -39,14 +39,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
-        <div className="flex flex-col items-center text-white gap-2 animate-pulse">
-          <span className="text-sm tracking-widest">SCROLL</span>
-          <div className="h-12 w-0.5 bg-white"></div>
-        </div>
-      </div>
     </section>
   );
 };
