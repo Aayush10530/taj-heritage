@@ -5,17 +5,6 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { MapPin } from "lucide-react";
 
-// Fix for Leaflet marker icons
-useEffect(() => {
-  delete (L.Icon.Default.prototype as any)._getIconUrl;
-  
-  L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-  });
-}, []);
-
 const attractions = [
   { name: "Taj Mahal", lat: 27.1751, lng: 78.0421, description: "The iconic white marble mausoleum built by Emperor Shah Jahan." },
   { name: "Agra Fort", lat: 27.1797, lng: 78.0216, description: "UNESCO World Heritage site, a historical fort in the city of Agra." },
@@ -27,6 +16,17 @@ const attractions = [
 ];
 
 const InteractiveMap = () => {
+  useEffect(() => {
+    // Fix for Leaflet marker icons
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+      iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+    });
+  }, []);
+
   return (
     <div className="relative h-[500px] w-full rounded-xl overflow-hidden shadow-lg">
       <MapContainer
