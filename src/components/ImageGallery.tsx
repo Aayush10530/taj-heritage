@@ -20,19 +20,9 @@ const images = [
     caption: "The magnificent red sandstone Agra Fort, a UNESCO World Heritage Site"
   },
   {
-    src: "/lovable-uploads/38db1722-ab1f-44d2-bfc1-95605b191003.png",
-    alt: "Taj Mahal at night",
-    caption: "Ethereal beauty of the Taj Mahal under moonlight"
-  },
-  {
     src: "https://images.unsplash.com/photo-1568019344332-013d4dca7d7e",
     alt: "Itmad-ud-Daulah",
     caption: "Itmad-ud-Daulah, often called the 'Baby Taj'"
-  },
-  {
-    src: "/lovable-uploads/452c1e6d-a8c3-48c7-a8a7-032db9446cbd.png",
-    alt: "Imperial Agra",
-    caption: "Iconic monuments of Agra showcasing Mughal architectural brilliance"
   },
   {
     src: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed",
@@ -74,7 +64,7 @@ const ImageGallery = () => {
       </Carousel>
       
       {/* Clickable thumbnails */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mt-6">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-2 mt-6">
         {images.map((image, index) => (
           <div 
             key={index} 
