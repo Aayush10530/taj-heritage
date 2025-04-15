@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   Carousel,
@@ -19,9 +20,9 @@ const images = [
     caption: "The Taj Mahal framed by lush gardens and pine trees"
   },
   {
-    src: "https://images.unsplash.com/photo-1568019344332-013d4dca7d7e",
-    alt: "Itmad-ud-Daulah",
-    caption: "Itmad-ud-Daulah, often called the 'Baby Taj'"
+    src: "/lovable-uploads/b0660bda-2876-4f0f-847c-90db3be621e0.png",
+    alt: "Agra Fort Interior",
+    caption: "Sunlight streams through the ornate latticework of Agra Fort, illuminating the magnificent Mughal architecture within"
   },
   {
     src: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed",
