@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Carousel,
@@ -15,9 +14,9 @@ const images = [
     caption: "Taj Mahal at dawn, when the marble takes on a golden hue"
   },
   {
-    src: "https://images.unsplash.com/photo-1564507592333-c60657eea523",
-    alt: "Agra Fort",
-    caption: "The magnificent red sandstone Agra Fort, a UNESCO World Heritage Site"
+    src: "/lovable-uploads/b5ceeb3a-9e8c-4ab2-a7c1-5a05a01e030d.png",
+    alt: "Taj Mahal through trees",
+    caption: "The Taj Mahal framed by lush gardens and pine trees"
   },
   {
     src: "https://images.unsplash.com/photo-1568019344332-013d4dca7d7e",
