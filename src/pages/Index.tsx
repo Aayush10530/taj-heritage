@@ -56,8 +56,18 @@ const Index = () => {
       </section>
       
       <TourPackages />
+      <TaxiBooking />
       
-      {/* Interactive Map Section */}
+      {/* Local Insights Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom fade-in">
+          <LocalInsights />
+        </div>
+      </section>
+      
+      <GuideProfile />
+      
+      {/* Interactive Map Section - Moved here after GuideProfile and before Testimonials */}
       <section className="section-padding bg-muted/30">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -72,16 +82,6 @@ const Index = () => {
         </div>
       </section>
       
-      <TaxiBooking />
-      
-      {/* Local Insights Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom fade-in">
-          <LocalInsights />
-        </div>
-      </section>
-      
-      <GuideProfile />
       <Testimonials />
       
       {/* FAQ Section */}
