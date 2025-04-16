@@ -15,14 +15,15 @@ const images = [
     caption: "Taj Mahal at dawn, when the marble takes on a golden hue"
   },
   {
-    src: "/lovable-uploads/b5ceeb3a-9e8c-4ab2-a7c1-5a05a01e030d.png",
-    alt: "Taj Mahal through trees",
-    caption: "The Taj Mahal framed by lush gardens and pine trees"
+    src: "/lovable-uploads/bda4c7b4-e8d4-44be-be79-7cae37c2cd37.png",
+    alt: "Taj Mahal through garden view",
+    caption: "The Taj Mahal viewed through lush gardens with vibrant greenery"
   },
   {
     src: "/lovable-uploads/b0660bda-2876-4f0f-847c-90db3be621e0.png",
     alt: "Agra Fort Interior",
-    caption: "Sunlight streams through the ornate latticework of Agra Fort, illuminating the magnificent Mughal architecture within"
+    caption: "Sunlight streams through the ornate latticework of Agra Fort, illuminating the magnificent Mughal architecture within",
+    objectFit: "contain"
   },
   {
     src: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed",
@@ -48,7 +49,7 @@ const ImageGallery = () => {
                   <img 
                     src={image.src} 
                     alt={image.alt} 
-                    className="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-500"
+                    className={`w-full aspect-[16/9] ${image.objectFit === 'contain' ? 'object-contain bg-gray-100' : 'object-cover'} hover:scale-105 transition-transform duration-500`}
                     loading="lazy"
                   />
                 </div>
@@ -74,7 +75,7 @@ const ImageGallery = () => {
             <img 
               src={image.src} 
               alt={`Thumbnail ${index + 1}`} 
-              className="w-full aspect-square object-cover"
+              className={`w-full aspect-square ${image.objectFit === 'contain' ? 'object-contain bg-gray-100' : 'object-cover'}`}
               loading="lazy"
             />
           </div>
@@ -94,7 +95,7 @@ const ImageGallery = () => {
             <img 
               src={images[activeImage].src} 
               alt={images[activeImage].alt} 
-              className="max-w-full max-h-[80vh] object-contain"
+              className={`max-w-full max-h-[80vh] ${images[activeImage].objectFit === 'contain' ? 'object-contain' : 'object-contain'}`}
             />
             <div className="absolute top-4 right-4">
               <button 
