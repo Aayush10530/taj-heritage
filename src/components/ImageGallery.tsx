@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -24,11 +26,6 @@ const images = [
     alt: "Agra Fort Interior",
     caption: "Sunlight streams through the ornate latticework of Agra Fort, illuminating the magnificent Mughal architecture within",
     objectFit: "contain"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed",
-    alt: "Fatehpur Sikri",
-    caption: "The stunning red sandstone city of Fatehpur Sikri"
   }
 ];
 
@@ -64,7 +61,7 @@ const ImageGallery = () => {
         </div>
       </Carousel>
       
-      {/* Clickable thumbnails */}
+      {/* Clickable thumbnails with See More button */}
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-2 mt-6">
         {images.map((image, index) => (
           <div 
@@ -80,6 +77,15 @@ const ImageGallery = () => {
             />
           </div>
         ))}
+        <Link 
+          to="/gallery" 
+          className="cursor-pointer rounded-md overflow-hidden bg-accent/10 hover:bg-accent/20 transition flex items-center justify-center aspect-square"
+        >
+          <div className="flex flex-col items-center justify-center text-accent">
+            <ArrowRight className="h-8 w-8 mb-1" />
+            <span className="text-sm font-medium">See More</span>
+          </div>
+        </Link>
       </div>
       
       {/* Lightbox for clicked images */}
