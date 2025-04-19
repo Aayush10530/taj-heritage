@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,74 +21,75 @@ const galleryItems = [
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1564507592333-c60657eea523",
-    alt: "Taj Mahal Reflection",
-    caption: "Reflection of the Taj Mahal in the water channels of its gardens",
-    category: "Taj Mahal"
-  },
-  {
-    id: 4,
     src: "/lovable-uploads/b0660bda-2876-4f0f-847c-90db3be621e0.png",
     alt: "Agra Fort Interior",
     caption: "Ornate latticework of Agra Fort interior",
     category: "Agra Fort",
     objectFit: "contain"
   },
+  
   {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1588096344356-9b05d911091c",
-    alt: "Agra Fort Exterior",
-    caption: "The imposing red sandstone walls of Agra Fort",
+    id: 4,
+    src: "/heritage-uploads/diwan-e-aam.jpg",
+    alt: "Diwan-e-Aam, Agra Fort",
+    caption: "The majestic Diwan-e-Aam (Hall of Public Audience) in Agra Fort with its iconic arched columns",
     category: "Agra Fort"
   },
   {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed",
+    id: 5,
+    src: "/heritage-uploads/fateh 1.jpg",
     alt: "Fatehpur Sikri",
     caption: "The stunning red sandstone city of Fatehpur Sikri",
     category: "Fatehpur Sikri"
   },
   {
+    id: 6,
+    src: "/heritage-uploads/fateh 2.jpg",
+    alt: "Fatehpur Sikri",
+    caption: "Breathtaking Mughal corridors—each arch whispering tales of emperors",
+    category: "Fatehpur Sikri"
+  },
+  {
     id: 7,
-    src: "https://images.unsplash.com/photo-1626017204247-b3b34249fbb7",
-    alt: "Sikandra",
-    caption: "The magnificent tomb of Akbar at Sikandra",
-    category: "Sikandra"
+    src: "/heritage-uploads/itmad 1.jpg",
+    alt: "Itmad-ud-Dulah",
+    caption: "“Baby Taj”—radiates quiet elegance and timeless charm; a hidden jewel of Agra",
+    category: "Itmad-ud-Dulah"
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1609183546144-3ea06cb27ed4",
-    alt: "Itmad-ud-Daulah",
-    caption: "Itmad-ud-Daulah tomb, also known as 'Baby Taj'",
-    category: "Itmad-ud-Daulah"
+    src: "/heritage-uploads/sikandra2.jpg",
+    alt: "Sikandra",
+    caption: "The magnificent tomb of Akbar,the Great, at Sikandra",
+    category: "Sikandra"
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1623341214825-9f4f963727da",
-    alt: "Ram Bagh",
-    caption: "The historic Ram Bagh garden, one of the oldest Mughal gardens",
-    category: "Ram Bagh"
+    src: "/heritage-uploads/sikandra1.jpg",
+    alt: "Sikandra",
+    caption: "The Grand archway inviting travelers to witness the legacy of an emperor who shaped history",
+    category: "Sikandra"
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1596395463910-4e6df70c4b7f",
+    src: "/heritage-uploads/taj mahal dusk.jpg",
     alt: "Taj Mahal at Dusk",
     caption: "The Taj Mahal as the sun sets, bathing it in golden light",
     category: "Taj Mahal"
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1606046604972-77cc76aee944",
+    src: "/heritage-uploads/metab.png",
     alt: "Mehtab Bagh",
-    caption: "View of the Taj Mahal from Mehtab Bagh across the Yamuna River",
+    caption: "Mehtab Bagh, a serene garden in Agra, India, opposite the Taj Mahal",
     category: "Mehtab Bagh"
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1524896325018-95c722ceb805",
-    alt: "Jama Masjid Fatehpur Sikri",
-    caption: "The impressive Jama Masjid at Fatehpur Sikri",
-    category: "Fatehpur Sikri"
+    src: "/heritage-uploads/ram bagh.png",
+    alt: "Ram Bagh",
+    caption: "The historic Ram Bagh garden, one of the oldest Mughal gardens",
+    category: "Ram Bagh"
   }
 ];
 

@@ -1,6 +1,6 @@
-
 import { useEffect, useRef } from "react";
 import { User, Car, Hotel, Headphones } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -32,7 +32,8 @@ const Services = () => {
     {
       icon: <Car size={32} />,
       title: "Luxury Transportation",
-      description: "Travel in comfort with our fleet of air-conditioned, chauffeur-driven luxury vehicles."
+      description: "Travel in comfort with our fleet of air-conditioned, chauffeur-driven luxury vehicles.",
+      hasKnowMore: true
     },
     {
       icon: <Hotel size={32} />,
@@ -74,12 +75,23 @@ const Services = () => {
                 <div className="text-accent-foreground">{service.icon}</div>
               </div>
               <h3 className="font-playfair text-xl font-semibold mb-4">{service.title}</h3>
-              <p>{service.description}</p>
+              <p className="mb-4">{service.description}</p>
+              {service.hasKnowMore && (
+                <Link 
+                  to="/luxury-transport" 
+                  className="text-accent hover:text-accent/80 font-medium inline-flex items-center"
+                >
+                  Know More
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )}
             </div>
           ))}
         </div>
         
-        <div className="mt-16 bg-sandstone/30 rounded-lg p-8 fade-in">
+        <div className="mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h3 className="heading-md mb-4">Custom Services Available</h3>

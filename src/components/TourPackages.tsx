@@ -32,7 +32,7 @@ const TourPackages = () => {
       id: 1,
       title: "Taj Mahal Sunrise Private Tour",
       description: "Experience the magic of the Taj Mahal at dawn, when the first rays of sunlight illuminate the marble monument, creating a breathtaking golden glow.",
-      image: "https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1000",
+      image: "/heritage-uploads/taj rise.jpg",
       rating: 4.9,
       reviews: 124,
       people: "1-3",
@@ -47,15 +47,15 @@ const TourPackages = () => {
     },
     {
       id: 2,
-      title: "Royal Mughal Heritage Full Day Tour",
+      title: "Royal Mughal Heritage Full Tour",
       description: "Immerse yourself in the rich history of the Mughal Empire with visits to all major monuments in Agra, accompanied by expert historical commentary.",
-      image: "https://images.pexels.com/photos/3581368/pexels-photo-3581368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      image: "/heritage-uploads/all.jpg",
       rating: 4.8,
       reviews: 98,
       people: "2-6",
       price: 250,
       highlights: [
-        "Visit all major Mughal monuments in one day",
+        "Visit all major Mughal monuments in two day",
         "Insights into the architecture and history",
         "Lunch at a traditional restaurant",
         "Luxury air-conditioned transportation"

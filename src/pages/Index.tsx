@@ -1,11 +1,9 @@
-
 import { useEffect, useRef } from "react";
 import ThemedNavbar from "../components/ThemedNavbar";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import Services from "../components/Services";
 import TourPackages from "../components/TourPackages";
-import TaxiBooking from "../components/TaxiBooking";
 import GuideProfile from "../components/GuideProfile";
 import Testimonials from "../components/Testimonials";
 import ContactForm from "../components/ContactForm";
@@ -56,7 +54,6 @@ const Index = () => {
       </section>
       
       <TourPackages />
-      <TaxiBooking />
       
       {/* Local Insights Section */}
       <section className="section-padding bg-white">
@@ -83,35 +80,6 @@ const Index = () => {
       </section>
       
       <Testimonials />
-      
-      {/* FAQ Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-custom">
-          <FAQSection />
-        </div>
-      </section>
-      
-      {/* Newsletter and Booking Calendar Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="heading-lg mb-6 fade-in">Plan Your Visit</h2>
-            <p className="text-lg fade-in">
-              Check our availability and subscribe to our newsletter for exclusive updates and offers.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="fade-in">
-              <NewsletterSignup />
-            </div>
-            <div className="fade-in">
-              <BookingCalendar />
-            </div>
-          </div>
-        </div>
-      </section>
-      
       <ContactForm />
       <Footer />
     </div>

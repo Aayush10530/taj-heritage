@@ -1,12 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, Home } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const ThemedNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +28,29 @@ const ThemedNavbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
+
+  const handleNavClick = (e: React.MouseEvent, section: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: section } });
+    } else {
+      document.querySelector(section)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Handle scrolling when navigating from other pages
+    if (location.pathname === '/' && location.state?.scrollTo) {
+      setTimeout(() => {
+        document.querySelector(location.state.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      // Clear the state after scrolling
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   return (
     <nav
@@ -52,20 +75,17 @@ const ThemedNavbar = () => {
           <a href="/" onClick={handleHomeClick} className="nav-link hover:text-accent transition-colors text-black">
             <Home size={16} />
           </a>
-          <a href="#about" className="nav-link hover:text-accent transition-colors text-black">
+          <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="nav-link hover:text-accent transition-colors text-black">
             About
           </a>
-          <a href="#services" className="nav-link hover:text-accent transition-colors text-black">
+          <a href="#services" onClick={(e) => handleNavClick(e, '#services')} className="nav-link hover:text-accent transition-colors text-black">
             Services
           </a>
-          <a href="#tours" className="nav-link hover:text-accent transition-colors text-black">
+          <a href="#tours" onClick={(e) => handleNavClick(e, '#tours')} className="nav-link hover:text-accent transition-colors text-black">
             Tours
           </a>
-          <a href="#contact" className="nav-link hover:text-accent transition-colors text-black">
+          <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="nav-link hover:text-accent transition-colors text-black">
             Contact
-          </a>
-          <a href="#contact" className="btn-primary">
-            Book Now
           </a>
         </div>
 
@@ -98,37 +118,30 @@ const ThemedNavbar = () => {
           <a
             href="#about"
             className="py-3 text-lg border-b border-border text-black"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#about')}
           >
             About
           </a>
           <a
             href="#services"
             className="py-3 text-lg border-b border-border text-black"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#services')}
           >
             Services
           </a>
           <a
             href="#tours"
             className="py-3 text-lg border-b border-border text-black"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#tours')}
           >
             Tours
           </a>
           <a
             href="#contact"
             className="py-3 text-lg border-b border-border text-black"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#contact')}
           >
             Contact
-          </a>
-          <a
-            href="#contact"
-            className="btn-primary mt-4 text-center"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Book Now
           </a>
         </div>
       </div>

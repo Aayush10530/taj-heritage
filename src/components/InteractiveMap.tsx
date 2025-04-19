@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -11,49 +10,49 @@ const attractions = [
     lat: 27.1751, 
     lng: 78.0421, 
     description: "The iconic white marble mausoleum built by Emperor Shah Jahan.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada"
+    image: "/lovable-uploads/taj mahal dusk.jpg"
   },
   { 
     name: "Agra Fort", 
     lat: 27.1797, 
     lng: 78.0216, 
     description: "UNESCO World Heritage site, a historical fort in the city of Agra.",
-    image: "/lovable-uploads/b0660bda-2876-4f0f-847c-90db3be621e0.png"
+    image: "/lovable-uploads/diwan-e-aam.jpg"
   },
   { 
     name: "Fatehpur Sikri", 
     lat: 27.0940, 
     lng: 77.6711, 
     description: "A city founded in 1569 by the Mughal Emperor Akbar.",
-    image: "https://images.unsplash.com/photo-1619110602090-0a024b48d5ed"
+    image: "/lovable-uploads/fateh 1.jpg"
   },
   { 
     name: "Itmad-ud-Daulah", 
     lat: 27.1927, 
     lng: 78.0309, 
     description: "Known as 'Baby Taj', this tomb inspired the design of the Taj Mahal.",
-    image: "https://images.unsplash.com/photo-1609183546144-3ea06cb27ed4"
+    image: "/lovable-uploads/itmad 1.jpg"
   },
   { 
     name: "Mehtab Bagh", 
     lat: 27.1796, 
     lng: 78.0437, 
     description: "A garden complex aligned with the Taj Mahal on the opposite side of the Yamuna River.",
-    image: "/lovable-uploads/bda4c7b4-e8d4-44be-be79-7cae37c2cd37.png"
+    image: "/lovable-uploads/metab.png"
   },
   { 
     name: "Sikandra", 
     lat: 27.2209, 
     lng: 77.9409, 
     description: "The tomb of Akbar the Great, a masterpiece of Mughal architecture.",
-    image: "https://images.unsplash.com/photo-1626017204247-b3b34249fbb7"
+    image: "/lovable-uploads/sikandra1.jpg"
   },
   { 
     name: "Ram Bagh", 
     lat: 27.1947, 
     lng: 78.0359, 
     description: "One of the oldest Mughal gardens in India, originally built by Emperor Babur.",
-    image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da"
+    image: "/lovable-uploads/ram bagh.png"
   },
 ];
 
